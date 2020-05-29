@@ -7,20 +7,20 @@
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="{{ .Site.Params.themeColor }}" />
 <link rel="canonical" href="{{ .Permalink }}" />
+<meta name="msapplication-TileColor" content="{{ .Site.Params.themeColor }}">
+<meta name="msapplication-TileImage" content="{{ .Site.Params.BaseUrl }}/ms-icon-144x144.png">
 
 {{ block "title" . }}
     <title>
         {{ if .IsHome }}
-            {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }} {{ end }}
+             wiarda.digital
         {{ else }}
-            {{ .Title }} :: {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}
+            {{ .Title }} :: {{ with $.Site.Params.Subtitle }}  {{ . }}{{ end }}
         {{ end }}
     </title>
 {{ end }}
 
-<!-- CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
+
 
 {{ $options := (dict "targetPath" "main.css" "outputStyle" "compressed" "enableSourceMap" true) }}
 {{ $style := resources.Get "scss/main.scss" | resources.ToCSS $options | resources.Minify | resources.Fingerprint }}

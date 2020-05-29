@@ -3,13 +3,31 @@
         {{ if .Site.Params.Logo.path }}
             <img src="{{ .Site.Params.Logo.path }}" alt="{{ .Site.Params.Logo.alt }}" />
         {{ else }}
-            <span class="logo__mark">></span>
-            <span class="logo__text">{{ with .Site.Params.Logo.logoText }}{{ . }}{{ else }}hello{{ end }}</span>
-            <span class="logo__cursor" style=
+            
+            <div class="logo__text" style="width: max-content;margin-right: 10px;">
+                <span class="logo__mark" style="margin-right: 0;">#</span>
+                <span>{{ with .Site.Params.Logo.logoText }}{{ . }} {{ else }}hello{{ end }} 
+                    </span><span>
+                    {{if eq .Title "404 Page not found"}}
+                        404
+                    {{else}}
+                        {{if gt (len .Title) 10}} 
+                            {{substr .Title 0 5}}...
+                        {{else}}
+                            {{.Title}}
+                        {{end}}
+                    {{end}}
+                </span>
+                <span class="logo__cursor" style=
                   "{{ with.Site.Params.Logo.logoCursorDisabled }}visibility:hidden;{{ end }}
                    {{ with.Site.Params.Logo.logoCursorColor    }}background-color:{{ . }};{{ end }}
-                   {{ with.Site.Params.Logo.logoCursorAnimate  }}animation-duration:{{ . }};{{ end }}">
-            </span>
+                   {{ with.Site.Params.Logo.logoCursorAnimate  }}animation-duration:{{ . }};{{ end }}
+                   vertical-align:middle;
+                   margin-left:0px;
+                   width:2px;
+                   height: 1.2rem;">
+                </span>
+            </div>
         {{ end }}
     </div>
 </a>

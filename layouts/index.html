@@ -1,17 +1,106 @@
 {{ define "main" }}
+    <style>
+        .content
+        {
+            background-image: url("{{.Site.BaseURL}}images/laptop.webp");
+            background-size: cover;
+            background-position: 50% 50%;
+            background-blend-mode: darken;
+            background-color: rgba(0,0,0,0);
+            color: rgba(0,0,0,0);
+            animation: fade 2s forwards , fade2 5s forwards 0.5s;
+            background-repeat: no-repeat;
+            margin: 0 0 0 0 
+            
+        }
+        hr
+        {
+            color: rgba(0,0,0,0);
+            animation: fade3 2s forwards 
+        }
+        h1
+        {
+            font-size: 3.4rem;
+        }
+        .subtitle
+        {
+            font-style: italic;
+            font-size: 1.3rem;
+        }
+        @keyframes fade {
+        from {
+            background-color: rgba(0,0,0,0);
+        }
+        to {
+            background-color: rgba(0,0,0,0.65);
+        }
+        }        
+        @-webkit-keyframes fade {
+        from {
+            background-color: rgba(0,0,0,0);
+        }
+        to {
+            background-color: rgba(0,0,0,0.65);
+        }
+        }
+        
+        @-webkit-keyframes fade2 {
+        from {
+            color: rgba(255,255,255,0);
+        }
+        to {
+            color:rgba(255,255,255,1)
+                    }
+        }
+        
+        @keyframes fade2 {
+        from {
+            color: rgba(255,255,255,0);
+        }
+        to {
+            color:rgba(255,255,255,1)
+                    }
+        }
+
+        @keyframes fade3 {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+        }        
+        @-webkit-keyframes fade3 {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+        }                
+
+    </style>
     <main aria-role="main">
         <div>
-            <h1>{{ .Site.Title }}</h1>
+            <!-- <h1>{{ .Site.Title }}</h1> -->
+            
+            
+            <h1>Hi I'm Michael!</h1>
+            <hr>
+            <span class="subtitle">
+            Loving father and husband, <br/>passionate software engineer <br />and lifelong learner
+            </span>
+            <hr>
 
+            <!-- {{- with .Site.Params.social }}
+    {{ partial "social-icons.html" . }}
+{{- end }} -->
+
+            <!-- <h1>wiarda.digital</h1>
             {{- with .Site.Params.homeSubtitle }}
                 <p>{{.}}</p>
             {{- end }}
-
-            {{- with .Site.Params.social }}
-                <div>
-                    {{ partial "social-icons.html" . }}
-                </div>
-            {{- end }}
+            -->
         </div>
     </main>
 {{ end }}
